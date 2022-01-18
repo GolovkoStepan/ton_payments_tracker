@@ -47,6 +47,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :ton_payments_tracker, TonPaymentsTracker.TonApiClient,
+  url: "https://api.ton.sh",
+  wallet_address: "EQCVYqjJbudxIq-DJWZf6S31xhkEKmgeZzQhAubzgcW7qkcJ"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
