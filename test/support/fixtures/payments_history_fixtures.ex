@@ -14,11 +14,27 @@ defmodule TonPaymentsTracker.PaymentsHistoryFixtures do
         from: random_str(),
         hash: random_str(),
         message: random_str(),
-        value: 420000
+        value: 420_000
       })
       |> TonPaymentsTracker.PaymentsHistory.create_transaction()
 
     transaction
+  end
+
+  @doc """
+  Generate a payment.
+  """
+  def payment_fixture(attrs \\ %{}) do
+    {:ok, payment} =
+      attrs
+      |> Enum.into(%{
+        code: random_str(),
+        confirmed: false,
+        value: 420_000
+      })
+      |> TonPaymentsTracker.PaymentsHistory.create_payment()
+
+    payment
   end
 
   defp random_str(str_length \\ 50) do

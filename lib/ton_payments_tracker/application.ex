@@ -15,9 +15,9 @@ defmodule TonPaymentsTracker.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TonPaymentsTracker.PubSub},
       # Start the Endpoint (http/https)
-      TonPaymentsTrackerWeb.Endpoint
-      # Start a worker by calling: TonPaymentsTracker.Worker.start_link(arg)
-      # {TonPaymentsTracker.Worker, arg}
+      TonPaymentsTrackerWeb.Endpoint,
+      # Start a tracker system supervisor
+      TonPaymentsTracker.TrackerSupervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

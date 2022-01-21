@@ -3,10 +3,17 @@ defmodule TonPaymentsTracker.PaymentsHistory.Transaction do
   import Ecto.Changeset
 
   schema "transactions" do
-    field :from, :string    # Адрес отправителя
-    field :hash, :string    # Хеш транзакции
-    field :message, :string # Сообщение, указываемое при платяже
-    field :value, :integer  # Сумма в нанотон (1 TON = 1000000000 Nanoton)
+    # Адрес отправителя
+    field :from, :string
+
+    # Хеш транзакции
+    field :hash, :string
+
+    # Сообщение, указываемое при платяже
+    field :message, :string
+
+    # Сумма в нанотон (1 TON = 1000000000 Nanoton)
+    field :value, :integer
 
     timestamps()
   end

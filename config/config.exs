@@ -51,6 +51,8 @@ config :ton_payments_tracker, TonPaymentsTracker.TonApiClient,
   url: "https://api.ton.sh",
   wallet_address: "EQCVYqjJbudxIq-DJWZf6S31xhkEKmgeZzQhAubzgcW7qkcJ"
 
+config :ton_payments_tracker, TonPaymentsTracker.ApiFetcher, api_request_delay: 20_000
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

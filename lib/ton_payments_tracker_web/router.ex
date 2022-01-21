@@ -17,7 +17,7 @@ defmodule TonPaymentsTrackerWeb.Router do
   scope "/", TonPaymentsTrackerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", HistoryLive
   end
 
   # Other scopes may use custom stacks.
