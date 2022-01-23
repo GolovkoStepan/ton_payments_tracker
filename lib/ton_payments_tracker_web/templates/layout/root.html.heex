@@ -9,22 +9,37 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <%= @inner_content %>
+  <body class="bg-light">
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <img class="d-block mx-auto mb-4" src={Routes.static_path(@conn, "/images/ton-logo.png")} alt="" width="100" height="100">
+          <h2 class="mb-3">TON PAYMENTS TRACKER</h2>
+          <p class="lead">
+            Сервис для отслеживания платежей в блокчейне TON. Для добавления отслеживаемого платежа введите сумму в форме ниже.
+            При создании будет сгенерирован специальный код, который нужно обязательно указать при переводе криптовалюты. При этом, также будет
+            проверяна сумма, поступившая на ваш кошелек. Если она не совпадет с указанной при создании суммой, платеж не будет подтвержен.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <h5 class="text-center">Отслеживаемый кошелек: <%= Application.get_env(:ton_payments_tracker, TonPaymentsTracker.TonApiClient)[:wallet_address] %></h5>
+          </div>
+        </div>
+
+        <div class="py-4"></div>
+
+        <%= @inner_content %>
+      </main>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">© 2022 Stepan Golovko</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/GolovkoStepan" target="_blank">GitHub</a></li>
+          <li class="list-inline-item"><a href="https://career.habr.com/stepangolovko1993" target="_blank">Habr Career</a></li>
+        </ul>
+      </footer>
+    </div>
   </body>
 </html>

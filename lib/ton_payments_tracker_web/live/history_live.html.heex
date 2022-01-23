@@ -1,3 +1,31 @@
-<h1>Payments history</h1>
+<div class="row">
+  <div class="col-md-4">
+    <form phx-submit="create-payment" class="mb-4">
+      <div class="input-group mb-3">
+        <span class="input-group-text">TON</span>
+        <input type="number" step="0.0000000001" name="value" class="form-control" placeholder="Введите сумму платежа">
+      </div>
 
-<p>Update count: <%= @update_count %></p>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Создать отслеживаемый платеж</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-8">
+    <div id="payments">
+      <%= for payment <- @payments do %>
+        <% css_class = if payment.confirmed, do: "card text-white bg-success mb-3", else: "card text-white bg-secondary mb-3" %>
+
+        <div class={css_class} id={"payment-#{payment.id}"}>
+          <div class="card-header">ID: <%= payment.id %></div>
+          <div class="card-body">
+            <p class="card-text">Код: <%= payment.code %></p>
+            <p class="card-text">Сумма: <%= payment.value / 1_000_000_000 %></p>
+            <p class="card-text">Статус: <%= if payment.confirmed, do: "Подтвержден", else: "Не подтвержден" %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

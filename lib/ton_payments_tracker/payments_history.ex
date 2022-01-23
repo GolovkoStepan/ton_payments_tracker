@@ -112,7 +112,7 @@ defmodule TonPaymentsTracker.PaymentsHistory do
 
   """
   def list_payments do
-    Repo.all(Payment)
+    Repo.all(from(p in Payment, select: p, order_by: [desc: p.inserted_at]))
   end
 
   @doc """

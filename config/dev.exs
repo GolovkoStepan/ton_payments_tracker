@@ -25,7 +25,17 @@ config :ton_payments_tracker, TonPaymentsTrackerWeb.Endpoint,
   secret_key_base: "hZipr+hrb8BOdd4hPnIbBhBSJ33E42w3OjYecJ0s2K6NWIRaHf5adVMN5rosFksf",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {
+      Esbuild,
+      :install_and_run,
+      [:default, ~w(--sourcemap=inline --watch)]
+    },
+    # Sass watcher for handle css changes
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+  }
   ]
 
 # ## SSL Support
