@@ -35,7 +35,7 @@ config :ton_payments_tracker, TonPaymentsTrackerWeb.Endpoint,
       DartSass,
       :install_and_run,
       [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
-  }
+    }
   ]
 
 # ## SSL Support

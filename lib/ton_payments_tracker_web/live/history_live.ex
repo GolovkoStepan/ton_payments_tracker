@@ -22,7 +22,9 @@ defmodule TonPaymentsTrackerWeb.HistoryLive do
       sum ->
         sum_in_nanoton = convert_to_nanoton(sum)
         payment_code = generate_code()
-        {:ok, payment} = PaymentsHistory.create_payment(%{code: payment_code, value: sum_in_nanoton})
+
+        {:ok, payment} =
+          PaymentsHistory.create_payment(%{code: payment_code, value: sum_in_nanoton})
 
         {
           :noreply,

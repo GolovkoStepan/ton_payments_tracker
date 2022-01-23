@@ -26,5 +26,7 @@ config :ton_payments_tracker, TonPaymentsTracker.Mailer, adapter: Swoosh.Adapter
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :ton_payments_tracker, TonPaymentsTracker.ApiFetcher, api_request_delay: 2_000
+
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
