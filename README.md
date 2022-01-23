@@ -1,4 +1,13 @@
-# TonPaymentsTracker
+# Ton Payments Tracker
+
+Service for tracking payments in the Ton blockchain. After creating a trackable payment, the service will look for it among new transactions. If such a transaction is found, the service will change the payment status to "Confirmed".
+When transferring a payment, you must specify the generated key as a message.
+
+You need to add your wallet address to the config:
+```
+config :ton_payments_tracker, TonPaymentsTracker.TonApiClient,
+  wallet_address: "EQCVYqjJbudxIq-DJWZf6S31xhkEKmgeZzQhAubzgcW7qkcJ"
+```
 
 To start your Phoenix server:
 
