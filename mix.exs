@@ -51,7 +51,8 @@ defmodule TonPaymentsTracker.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:httpoison, "~> 1.8"},
-      {:mock, "~> 0.3.0", only: :test}
+      {:mock, "~> 0.3.0", only: :test},
+      {:ex_check, "~> 0.14.0", only: [:dev], runtime: false}
     ]
   end
 
